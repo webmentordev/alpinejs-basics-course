@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
+</head>
+<body>
+    <div x-data="{
+        body: '',
+        markdown: '',
+        preview(){
+            this.markdown = marked.parse(this.body)
+        }
+    
+    }">
+        <div>
+            <div>
+                <textarea cols="30" rows="4" x-model="body"></textarea>
+            </div>
+            <button x-on:click="preview">Preview</button>
+        </div>
+
+        <div x-html="markdown"></div>
+    </div>
+</body>
+</html>

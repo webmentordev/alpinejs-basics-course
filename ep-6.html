@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    <!-- <div x-data="{ agreed: false }">
+        <input type="checkbox" x-model="agreed">
+        <span x-show="agreed">
+            So you have agreed!
+        </span>
+    </div> -->
+
+    <!-- <div x-data="{ records: [] }">
+        <input type="checkbox" x-model="records" value="1">
+        <input type="checkbox" x-model="records" value="2">
+        <input type="checkbox" x-model="records" value="3">
+        <span x-text="records"></span>
+    </div> -->
+
+    <!-- <form x-data="{ 
+        users: [],
+        deleteUsers(){
+            console.log(this.users)
+        }
+    }" 
+    x-on:submit.prevent="deleteUsers">
+        <input type="checkbox" x-model="users" value="1"> Ahmer
+        <input type="checkbox" x-model="users" value="2"> Ali
+        <input type="checkbox" x-model="users" value="3"> Kaleem
+        <button type="submit">Submit</button>
+    </form> -->
+
+    <!-- <div x-data="{ plan: '' }">
+        <select x-model="plan">
+            <option value="" selected>Please select a plan</option>
+            <option value="yearly">Yearly</option>
+            <option value="monthly">Monthly</option>
+        </select>
+        <span x-show="plan" x-text="`You've chosen the plan ${plan} plan`"></span>
+    </div>
+    <div x-data="{ plan: 'monthly' }">
+        <select x-model="plan">
+            <option value="yearly">Yearly</option>
+            <option value="monthly">Monthly</option>
+        </select>
+        <span x-show="plan" x-text="`You've chosen the plan ${plan} plan`"></span>
+    </div> -->
+
+
+    <div x-data="{ plan: 'monthly' }">
+        <input type="radio" name="plan" value="monthly" x-model="plan">
+        <input type="radio" name="plan" value="yearly" x-model="plan">
+        <span x-show="plan" x-text="`You've chosen the plan ${plan} plan`"></span>
+    </div>
+
+
+
+</body>
+</html>

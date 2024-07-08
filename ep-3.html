@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    <div x-data="{ visible: false }">
+        <div x-show="visible">
+            Some content
+        </div>
+    </div>
+
+    <div x-data="{ records: [1,2,3,4,5] }">
+        <div x-show="records.length >= 1">
+            Some records content
+        </div>
+    </div>
+
+    <div x-data="{ show: false }">
+        <button x-on:click="show = true">Show</button>
+        <div x-show="show">
+            Some on click
+        </div>
+    </div>
+
+
+    <div x-data="{ show: false }">
+        <button x-on:click="show = !show">Toggle</button>
+        <div x-show="show">
+            Toggle on click
+        </div>
+    </div>
+
+    <div x-data="{ number: 0 }">
+        <button x-on:click="number++">Increment</button>
+        <div x-text="number"></div>
+        <div x-show="number >= 10">
+            That's a big number
+        </div>
+    </div>
+</body>
+</html>

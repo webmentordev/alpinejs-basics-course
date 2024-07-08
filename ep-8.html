@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+        .bold{
+            font-weight: bold;
+        }
+        .progress{
+            height: 10px;
+            width: 300px;
+            background-color: #ccc;
+        }
+        .progress-inner{
+            height: 10px;
+            background-color: slategray;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div x-data="{
+        selected: [],
+        people: [
+            { id: 1, name: 'Ahmer' },
+            { id: 2, name: 'Ali' },
+            { id: 3, name: 'Khalid' },
+        ]
+    }">
+        <template x-for="person in people">
+            <div>
+                <input type="checkbox"
+                x-model.number="selected"
+                x-bind:id="`person_${person.id}`"
+                x-bind:value="person.id"
+                >
+                <span x-text="person.name" x-bind:class="{ 'bold': selected.includes(person.id) }"></span>
+            </div>
+        </template>
+    </div> -->
+
+    <div x-data="{ 
+        progress: 0,
+        increment(){
+            this.progress++;
+        },
+        init(){
+            let interval = setInterval(() => {
+                if(this.progress >= 100){
+                    clearInterval(interval)
+                }
+                this.increment()
+            }, 100)
+        }
+    
+    }">
+        <div class="progress">
+            <div class="progress-inner" x-bind:style="`width: ${progress}%;`"></div>
+        </div>
+        <button x-on:click="increment">Increment</button>
+    </div>
+
+
+
+</body>
+</html>

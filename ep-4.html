@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    <!-- <div x-data="{ name: '' }">
+        <input type="text" x-model="name"><br>
+        <span x-text="name"></span><br>
+        <span x-text="name.length"></span><br>
+    </div> -->
+
+
+    <!-- <form x-data="{ name: '' }" x-on:submit.prevent="console.log(name)">
+        <input type="text" x-model="name"><br>
+        <button type="submit">Submit</button>
+    </form> -->
+
+
+    <!-- Event acts like e in e.preventDefault, use the option submit.prevent -->
+    <!-- <form x-data="{ name: '' }" x-on:submit="$event.preventDefault(); console.log(name)">
+        <input type="text" x-model="name"><br>
+        <button type="submit">Submit</button>
+    </form> -->
+    <!-- <form x-data="{ name: '' }" x-on:submit="$event.preventDefault(); console.log($event)">
+        <input type="text" x-model="name"><br>
+        <button type="submit">Submit</button>
+    </form> -->
+
+
+    <!-- Two way binding -->
+    <div x-data="{ 
+        name: '',
+        makeNameUppercase(){
+            this.name = this.name.toUpperCase()
+        }
+    }">
+        <input type="text" x-model="name"><br>
+        <span x-text="name"></span>
+        <button x-on:click="makeNameUppercase">Uppercase</button>
+    </div>
+</body>
+</html>
