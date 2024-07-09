@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
+</head>
+<body>
+    <!-- <div x-data="{ show: true }">
+        <div x-show="show">
+            am i visible?
+        </div>
+        <button x-on:click="show = !show">Toggle</button>
+    </div> -->
+
+    <!-- <div x-data="{ show: true }">
+        <button x-on:click="show = !show">Toggle</button>
+        <template x-if="show">
+            <div>
+                am i visible?
+            </div>
+        </template>
+    </div> -->
+
+    <!-- Runs twice -->
+    <div x-data="{ 
+        show: false,
+        users: [
+            { id: 1, name: 'Ahmer', points: 1 },
+            { id: 2, name: 'Ali', points: 2 }, 
+            { id: 3, name: 'Khalid', points: 3 }
+        ],
+
+        get peopleSortedByPoints(){
+            console.log('sort');
+            return this.users.sort((a,b) => b.points - a.points)
+        },
+    }">
+        <button x-on:click="show = !show">Show users</button>
+        <div x-show="show">
+            <template x-for="user in peopleSortedByPoints">
+                <div>
+
+                    <span x-text="user.name"></span> <span x-text="user.points"></span>
+                </div>
+            </template>
+        </div>
+    </div>
+    <!-- Runs once -->
+    <div x-data="{ 
+        show: false,
+        users: [
+            { id: 1, name: 'Ahmer', points: 1 },
+            { id: 2, name: 'Ali', points: 2 }, 
+            { id: 3, name: 'Khalid', points: 3 }
+        ],
+
+        get peopleSortedByPoints(){
+            console.log('sort');
+            return this.users.sort((a,b) => b.points - a.points)
+        },
+    }">
+        <button x-on:click="show = !show">Show users</button>
+        <template x-if="show">
+            <template x-for="user in peopleSortedByPoints">
+                <div>
+                    <span x-text="user.name"></span> <span x-text="user.points"></span>
+                </div>
+            </template>
+        </template>
+    </div>
+    <!-- Run once clicked -->
+    <div x-data="{ 
+        show: false,
+        users: [
+            { id: 1, name: 'Ahmer', points: 1 },
+            { id: 2, name: 'Ali', points: 2 }, 
+            { id: 3, name: 'Khalid', points: 3 }
+        ],
+
+        peopleSortedByPoints(){
+            console.log('sort');
+            return this.users.sort((a,b) => b.points - a.points)
+        },
+    }">
+        <button x-on:click="show = !show">Show users</button>
+        <template x-if="show">
+            <template x-for="user in peopleSortedByPoints()">
+                <div>
+                    <span x-text="user.name"></span> <span x-text="user.points"></span>
+                </div>
+            </template>
+        </template>
+    </div>
+</body>
+</html>

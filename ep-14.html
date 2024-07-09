@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
+
+    <style>
+        body{
+            margin: 0px;
+        }
+        .modal-wrapper{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal{
+            width: 100%;
+            max-width: 30%;
+            background-color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Next lecture -->
+     <!-- <div class="modal-wrapper" 
+        x-data="{ open: false }" 
+        x-show="open"
+        x-on:open-modal.window="open = true"
+        x-on:keyup.escape.window="open = false"
+     >
+        <div class="modal" x-on:click.outside="open = false">
+            I'm a modal
+        </div>
+     </div>
+     <button x-data="" x-on:click="$dispatch('open-modal')">Trigger modal</button> -->
+
+
+     <div x-data="{ message: '' }" x-on:message-sent.window="message = $event.detail.message">
+        <p x-text="message"></p>
+     </div>
+
+     <button x-data="" x-on:click="$dispatch('message-sent', { message: 'Hello there' })">Hi</button>
+
+
+</body>
+</html>

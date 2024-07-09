@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
+</head>
+<body>
+    <div x-data="{ numbers: [1,2,3,4,5] }">
+        <template x-for="number in numbers">
+            <span x-text="number"></span>
+        </template>
+    </div>
+
+    <div x-data="{ fruits: ['apple', 'banana', 'orange', 'grapes'] }">
+        <template x-for="fruit, index in fruits">
+            <div>
+                <span x-text="index + 1"></span>: <span x-text="fruit"></span>
+            </div>
+        </template>
+    </div>
+
+    <div x-data="{ people: [{ id: 1, name: 'Ahmer' },{ id: 2, name: 'Ali' }, { id: 3, name: 'Khalid' }] }">
+        <template x-for="person, index in people" :key="person.id">
+            <div>
+                <span x-text="index + 1"></span>: <span x-text="person.name"></span>
+            </div>
+        </template>
+    </div>
+
+    <div x-data="{ people: [
+            { id: 1, name: 'Ahmer', points: 1 },
+            { id: 2, name: 'Ali', points: 2 }, 
+            { id: 3, name: 'Khalid', points: 3 }
+        ],
+
+        get peopleSortedByPoints(){
+            return this.people.sort((a,b) => b.points - a.points)
+        },
+        incrementPoints(id){
+            this.people.find((p) => p.id == id).points++;
+        }
+    
+    }">
+        <template x-for="person, index in peopleSortedByPoints" :key="person.id">
+            <div>
+                <span x-text="person.name"></span> (<span x-text="person.points"></span>)
+                <button x-on:click="incrementPoints(person.id)">Increment</button>
+            </div>
+        </template>
+    </div>
+</body>
+</html>
