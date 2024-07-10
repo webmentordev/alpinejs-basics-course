@@ -6,14 +6,13 @@
     <title>AlineJS Basics Course</title>
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
-
-    <style>
-        [x-cloak]{
-            display: none !important;
-        }
-    </style>
 </head>
 <body>
-    <!-- Next lecture -->
+    <div x-data="{ open: false }">
+        <div x-show="open" x-cloak>
+            Hello
+        </div>
+        <button x-on:click="open = !open">Toggle</button>
+    </div>
 </body>
 </html>

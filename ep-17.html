@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
+</head>
+<body>
+    <div x-data="{
+        query: '',
+        results: [],
+        performSearch(query){
+            fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
+            .then(res => res.json())
+            .then(results => this.results = results.hits)
+        },
+        init(){
+            this.$watch('query', (query) => {
+                if(query === ''){
+                    this.results = []
+                    return;
+                }
+                this.performSearch(query)
+            });
+        }
+    }">
+        <input type="text" x-model.debounce.1000ms="query">
+        <p x-show="query.length">
+            Your search <span x-text="query"></span> returned <span x-text="results.length"></span> results
+        </p>
+
+        <div>
+            <template x-for="result in results" :key="result.objectID">
+                <div>
+                    <h4 x-text="result.title"></h4>
+                    <a :href="result.url" x-text="result.url"></a>
+                </div>
+            </template>
+        </div>
+    </div>
+</body>
+</html>

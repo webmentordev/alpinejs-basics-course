@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
+</head>
+<body>
+    <div x-data="" x-init="console.log($refs.hello)">
+        <div x-ref="hello">
+            Hello
+        </div>
+    </div>
+
+    <div x-data="" x-init="console.log($refs)">
+        <div x-ref="hello">
+            Hello
+        </div>
+        <div x-ref="morning">
+            Good Morning
+        </div>
+    </div>
+
+    <div x-data="" x-init="$refs.input.focus()">
+        <input type="text" x-ref="input">
+    </div>
+
+    <!-- Image preview -->
+    <form x-data="{ 
+        imagePreview: null,
+        previewImage(e){
+            const reader = new FileReader();
+            reader.onload = (e) => this.imagePreview = e.target.result;
+            reader.readAsDataURL(this.$refs.image.files[0]);
+        }
+    }">
+        <template x-if="imagePreview">
+            <div>
+                <img x-bind:src="imagePreview" alt="" style="width: 200px;">
+            </div>
+        </template>
+        <input type="file" x-on:change="previewImage" accept="image/*" x-ref="image">
+    </form>
+
+</body>
+</html>
