@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlineJS Basics Course</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="p-12" x-data="{ 
+        open: false, 
+        setting: {
+            name: true,
+            email: true,
+            created: true,
+            edit: true,
+        } }">
+        <div class="relative">
+            <button x-on:click="open = !open"
+                class="flex items-center p-3 py-2 rounded-lg inline-block border border-gray-300 mb-3">
+                <span class="mr-3 text-gray-500">Options</span>
+                <img src="https://api.iconify.design/material-symbols:arrow-drop-down.svg" width="20">
+            </button>
+            <div class="absolute top-[60px] left-0 p-3 rounded-lg bg-white x-10 border border-gray-300 w-[200px] text-gray-500"
+                x-transition x-show="open">
+                <div class="mb-2">
+                    <input type="checkbox" id="name" x-model="setting.name">
+                    <label for="name">Name</label>
+                </div>
+                <div class="mb-2">
+                    <input type="checkbox" id="email" x-model="setting.email">
+                    <label for="email">Email</label>
+                </div>
+                <div class="mb-2">
+                    <input type="checkbox" id="name" x-model="setting.created">
+                    <label for="created">Created</label>
+                </div>
+                <div class="mb-2 last:mb-0">
+                    <input type="checkbox" id="name" x-model="setting.edit">
+                    <label for="edit">Edit</label>
+                </div>
+            </div>
+        </div>
+        <table class="w-full">
+            <tr class="text-start">
+                <th class="text-start p-2" x-show="setting.name">Name</th>
+                <th class="text-start" x-show="setting.email">Email</th>
+                <th class="text-end" x-show="setting.created">Created</th>
+                <th class="text-end  p-2" x-show="setting.edit">Edit</th>
+            </tr>
+            <tr class="text-start">
+                <td class="text-start p-2" x-show="setting.name">Ahmer</td>
+                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
+                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-end  p-2" x-show="setting.edit">Delete</td>
+            </tr>
+
+            <tr class="text-start">
+                <td class="text-start p-2" x-show="setting.name">Ahmer</td>
+                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
+                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-end  p-2" x-show="setting.edit">Delete</td>
+            </tr>
+
+            <tr class="text-start">
+                <td class="text-start p-2" x-show="setting.name">Ahmer</td>
+                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
+                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-end  p-2" x-show="setting.edit">Delete</td>
+            </tr>
+
+            <tr class="text-start">
+                <td class="text-start p-2" x-show="setting.name">Ahmer</td>
+                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
+                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-end  p-2" x-show="setting.edit">Delete</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
