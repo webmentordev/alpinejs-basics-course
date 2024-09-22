@@ -1,0 +1,16 @@
+{
+  "name": "alpinejs-basics-course",
+  "version": "1.0.0",
+  "description": "EP #20 - Table Colums toggle",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./style/tailwind.css -o ./style/app.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "daisyui": "^4.12.10",
+    "tailwindcss": "^3.4.12"
+  }
+}

@@ -7,7 +7,7 @@
     <title>AlineJS Basics Course</title>
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/marked@13.0.2/lib/marked.umd.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style/app.css">
 </head>
 
 <body>
@@ -20,8 +20,7 @@
             edit: true,
         } }">
         <div class="relative">
-            <button x-on:click="open = !open"
-                class="flex items-center p-3 py-2 rounded-lg inline-block border border-gray-300 mb-3">
+            <button x-on:click="open = !open" class="flex items-center p-3 py-2 rounded-lg border border-gray-300 mb-3">
                 <span class="mr-3 text-gray-500">Options</span>
                 <img src="https://api.iconify.design/material-symbols:arrow-drop-down.svg" width="20">
             </button>
@@ -54,29 +53,29 @@
             </tr>
             <tr class="text-start">
                 <td class="text-start p-2" x-show="setting.name">Ahmer</td>
-                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
-                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-start" x-show="setting.email">ahmer@gmail.com</td>
+                <td class="text-end" x-show="setting.created">05 Sept, 2024</td>
                 <td class="text-end  p-2" x-show="setting.edit">Delete</td>
             </tr>
 
             <tr class="text-start">
                 <td class="text-start p-2" x-show="setting.name">Ahmer</td>
-                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
-                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-start" x-show="setting.email">ahmer@gmail.com</td>
+                <td class="text-end" x-show="setting.created">05 Sept, 2024</td>
                 <td class="text-end  p-2" x-show="setting.edit">Delete</td>
             </tr>
 
             <tr class="text-start">
                 <td class="text-start p-2" x-show="setting.name">Ahmer</td>
-                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
-                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-start" x-show="setting.email">ahmer@gmail.com</td>
+                <td class="text-end" x-show="setting.created">05 Sept, 2024</td>
                 <td class="text-end  p-2" x-show="setting.edit">Delete</td>
             </tr>
 
             <tr class="text-start">
                 <td class="text-start p-2" x-show="setting.name">Ahmer</td>
-                <td class="text-start" x-show="setting.email">ahmer@ystsol.com</td>
-                <td class="text-end" x-show="setting.created">Ahmer@@@1</td>
+                <td class="text-start" x-show="setting.email">ahmer@gmail.com</td>
+                <td class="text-end" x-show="setting.created">05 Sept, 2024</td>
                 <td class="text-end  p-2" x-show="setting.edit">Delete</td>
             </tr>
         </table>
